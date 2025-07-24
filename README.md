@@ -1,135 +1,126 @@
-AI Demand Prediction for Small Food Businesses
-Supporting UN SDG 8: Decent Work & Economic Growth
+# AI Demand Prediction for Small Food Businesses  
+*Supporting UN SDG 8: Decent Work & Economic Growth*  
 
-🌍 Project Overview
-Small food businesses are a key part of South Africa’s local economy, but many struggle to predict daily customer demand accurately.
+---
 
-When they overestimate demand, they produce too much food → food waste, higher costs, and environmental harm.
+## 🌍 Project Overview  
 
-When they underestimate demand, they run out of stock → lost sales, unhappy customers, and reduced profits.
+Small food businesses are a **key part of South Africa’s local economy**, but many struggle to **predict daily customer demand** accurately.
 
-This project uses Machine Learning (ML) to build a demand forecasting model that helps small businesses prepare the right amount of food each day.
+- **Overestimating demand** leads to food waste, higher costs, and environmental harm.  
+- **Underestimating demand** results in lost sales, unhappy customers, and reduced profits.
 
-✅ Reduced food waste → more sustainable operations
-✅ Improved profits → better economic growth
-✅ Data-driven decisions → empowers entrepreneurs
+This project uses **Machine Learning (ML)** to build a **demand forecasting model** that helps small businesses prepare the **right amount of food** each day.
 
-🎯 Why SDG 8?
-UN Sustainable Development Goal 8: Decent Work and Economic Growth focuses on promoting sustained, inclusive, and sustainable economic growth, full and productive employment, and decent work for all.
+✅ **Reduce food waste** → more sustainable operations  
+✅ **Improve profits** → better economic growth  
+✅ **Empower entrepreneurs** with data-driven decisions  
 
-This project contributes to SDG 8 by:
+---
 
-Helping small entrepreneurs stabilize income and grow their businesses
+## 🎯 Why SDG 8?  
 
-Improving operational efficiency and sustainability
+**UN Sustainable Development Goal 8: Decent Work and Economic Growth** promotes sustained, inclusive, and sustainable economic growth, full and productive employment, and decent work for all.
 
-Supporting local economic resilience
+This project contributes by:  
+- Helping small entrepreneurs **stabilize income and grow their businesses**  
+- Improving **operational efficiency and sustainability**  
+- Supporting **local economic resilience**  
 
-It also indirectly aligns with SDG 12: Responsible Consumption and Production by reducing food waste.
+It also aligns with **SDG 12: Responsible Consumption and Production** by reducing food waste.
 
-🤖 Machine Learning Approach
-Type of Learning: Supervised Learning → Regression Problem
+---
 
-Algorithm Used: Random Forest Regressor (ensemble model for better accuracy)
+## 🤖 Machine Learning Approach  
 
-Key Features Used:
+- **Type of Learning:** Supervised Learning → **Regression Problem**  
+- **Algorithm Used:** Random Forest Regressor  
+- **Key Features:**  
+  - Day of the Week (e.g., weekends have higher demand)  
+  - Weather Data (temperature)  
+  - Event Flags (public holidays, local events)  
+- **Target:** Predicted daily demand (customer count or sales volume)  
 
-Day of the Week (e.g., weekends have higher demand)
+The model is trained and tested on **synthetic data** but can be adapted for real-world sales data.
 
-Weather Data (hot days → more cold drinks, etc.)
+---
 
-Event Flags (public holidays, local events)
+## 📊 Sample Workflow  
 
-Target Variable: Predicted daily demand (number of customers or sales volume)
+1. **Data Collection:** Historical/simulated sales, weather, event data  
+2. **Preprocessing:** Handle missing values, encode categorical variables, normalize features  
+3. **Model Training:** Train Random Forest, evaluate with MAE and RMSE  
+4. **Results:** Visualize Actual vs Predicted demand, analyze trends  
 
-The model is trained and tested on synthetic data (simulated customer demand), but can be adapted to real sales data.
+---
 
-📊 Sample Workflow
-1️⃣ Data Collection
+## 🛠 Tools & Libraries  
 
-Historical sales data (or simulated dataset)
+- Python 3.x  
+- Google Colab / Jupyter Notebook  
+- Pandas & NumPy (data manipulation)  
+- Scikit-learn (machine learning)  
+- Matplotlib (visualization)  
 
-Weather & event indicators
+---
 
-2️⃣ Data Preprocessing
+## ✅ How to Run  
 
-Handle missing values
+1. Clone this repo or download files  
+2. Open `demand_prediction.ipynb` in Google Colab  
+3. Run all cells to generate predictions and plots  
+4. Enhance with real data or APIs as needed  
 
-Encode categorical data (day names → one-hot encoding)
+---
 
-Normalize numerical features
+## 📂 Project Structure  
 
-3️⃣ Model Training
+📦 SDG8-Demand-Prediction
+┣ 📜 demand_prediction.ipynb # ML model code (Google Colab notebook)
+┣ 📜 report.pdf # 1-page project report
+┣ 📜 slides.pdf # Pitch deck presentation
+┗ 📜 README.md # This documentation file
 
-Train a Random Forest model
-
-Evaluate using Mean Absolute Error (MAE) & Root Mean Square Error (RMSE)
-
-4️⃣ Results & Visualization
-
-Compare Actual vs Predicted demand
-
-Plot demand trends
-
-🛠 Tools & Libraries
-Google Colab / Jupyter Notebook (for running the model)
-
-Python 3.x
-
-Libraries:
-
-Pandas & NumPy → Data handling
-
-Scikit-learn → Machine Learning
-
-Matplotlib → Visualization
-
-✅ How to Run
-Clone this repo or download the files.
-
-Open demand_prediction.ipynb in Google Colab.
-
-Run all cells → The model will generate predictions and show visualizations.
-
-Modify features (add real sales data, live weather APIs) to improve accuracy.
-
-📂 Project Structure
-bash
+yaml
 Copy
 Edit
-📦 SDG8-Demand-Prediction
- ┣ 📜 demand_prediction.ipynb   # Main ML code (Google Colab Notebook)
- ┣ 📜 report.pdf                # 1-page project report
- ┣ 📜 slides.pdf                # Pitch deck presentation
- ┗ 📜 README.md                 # Project documentation
-📈 Expected Results
-Accurate daily demand predictions (low MAE → better forecasting)
 
-Visualization showing Actual vs Predicted demand
+---
 
-Insights into how day-of-week, weather, and events affect demand
+## 📈 Expected Results  
 
-These predictions can help businesses reduce waste & increase profits.
+- Accurate daily demand forecasts (low MAE)  
+- Clear visualization of Actual vs Predicted demand  
+- Insights into effects of day, weather, and events on demand  
 
-🤝 Ethical & Social Impact
-Ensure data includes diverse communities (urban & rural businesses).
+---
 
-Avoid algorithmic bias that could harm underrepresented groups.
+## 🤝 Ethical & Social Impact  
 
-Use data ethically & securely, especially if dealing with real sales records.
+- Include **diverse regions** (urban and rural) in data  
+- Avoid **algorithmic bias** against underrepresented groups  
+- Protect privacy and handle data ethically  
+- Promote sustainability by reducing food waste  
 
-Promote sustainability by reducing food waste.
+---
 
-🚀 Future Improvements
-Integrate real historical sales data
+## 🚀 Future Work  
 
-Connect live weather API for real-time forecasting
+- Integrate **real historical sales data**  
+- Connect **live weather APIs** for real-time forecasting  
+- Experiment with advanced ML models (e.g., XGBoost, Neural Nets)  
+- Deploy as a **web app** for small business use  
 
-Compare multiple ML models (e.g., XGBoost, Neural Networks)
+---
 
-Deploy as a simple web app (Flask/Streamlit) for easy use by small businesses
+## 🏆 Why This Project Matters  
 
-🏆 Why This Project Matters
-AI can empower small businesses to make better decisions, reduce waste, and grow sustainably. By focusing on SDG 8, this project contributes to economic development while promoting responsible business practices.
+**AI empowers small businesses** to make better decisions, reduce waste, and grow sustainably. This project supports economic development while encouraging responsible practices.
 
-“AI isn’t just about code—it’s a tool to solve humanity’s greatest challenges.”
+> *“AI isn’t just about code—it’s a tool to solve humanity’s greatest challenges.”*  
+
+---
+
+## 📌 Author  
+*Your Name*  
+📧 [your.email@example.com](mailto:your.email@example.com)
