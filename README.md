@@ -1,110 +1,135 @@
-Project Plan: Demand Prediction for Small Food Businesses (SDG 8)
-1. Problem Statement
-Predict daily demand (number of customers or quantity of food sold) for small food outlets in South Africa to reduce food waste and improve profitability.
+AI Demand Prediction for Small Food Businesses
+Supporting UN SDG 8: Decent Work & Economic Growth
 
-2. Data Collection
-Features:
+🌍 Project Overview
+Small food businesses are a key part of South Africa’s local economy, but many struggle to predict daily customer demand accurately.
 
-Day of the week
+When they overestimate demand, they produce too much food → food waste, higher costs, and environmental harm.
 
-Date (to capture trends/seasonality)
+When they underestimate demand, they run out of stock → lost sales, unhappy customers, and reduced profits.
 
-Weather data (temperature, rainfall, etc.) — South African weather APIs like SA Weather Service API or openweathermap.org
+This project uses Machine Learning (ML) to build a demand forecasting model that helps small businesses prepare the right amount of food each day.
 
-Local events or holidays (can create synthetic event flags)
+✅ Reduced food waste → more sustainable operations
+✅ Improved profits → better economic growth
+✅ Data-driven decisions → empowers entrepreneurs
 
-Past sales data (number of customers or sales volume) — you can create synthetic data if real data is unavailable
+🎯 Why SDG 8?
+UN Sustainable Development Goal 8: Decent Work and Economic Growth focuses on promoting sustained, inclusive, and sustainable economic growth, full and productive employment, and decent work for all.
 
-3. Data Preprocessing
-Handle missing data
+This project contributes to SDG 8 by:
 
-Encode categorical variables (e.g., day of week)
+Helping small entrepreneurs stabilize income and grow their businesses
 
-Normalize/scale numerical features
+Improving operational efficiency and sustainability
 
-Train/test split
+Supporting local economic resilience
 
-4. Modeling Approach
-Use Supervised Regression models to predict numeric demand:
+It also indirectly aligns with SDG 12: Responsible Consumption and Production by reducing food waste.
 
-Start simple with Linear Regression
+🤖 Machine Learning Approach
+Type of Learning: Supervised Learning → Regression Problem
 
-Try Decision Trees or Random Forests for better performance
+Algorithm Used: Random Forest Regressor (ensemble model for better accuracy)
 
-(Optional) Explore neural networks with TensorFlow or PyTorch
+Key Features Used:
 
-5. Evaluation Metrics
-Mean Absolute Error (MAE)
+Day of the Week (e.g., weekends have higher demand)
 
-Root Mean Squared Error (RMSE)
+Weather Data (hot days → more cold drinks, etc.)
 
-Visualize predicted vs actual demand
+Event Flags (public holidays, local events)
 
-6. Ethical Considerations
-Ensure dataset represents diverse regions (urban and rural)
+Target Variable: Predicted daily demand (number of customers or sales volume)
 
-Avoid bias that may neglect small rural businesses
+The model is trained and tested on synthetic data (simulated customer demand), but can be adapted to real sales data.
 
-Promote sustainability by reducing food waste and supporting fair economic growth
+📊 Sample Workflow
+1️⃣ Data Collection
 
-7. Deliverables
-Python notebook with data processing, model training, evaluation
+Historical sales data (or simulated dataset)
 
-1-page report summarizing problem, ML approach, results, and ethics
+Weather & event indicators
 
-Presentation/demo showing impact (e.g., potential food waste reduction)
+2️⃣ Data Preprocessing
 
-Starter Code Outline (Python, Scikit-learn)
-python
+Handle missing values
+
+Encode categorical data (day names → one-hot encoding)
+
+Normalize numerical features
+
+3️⃣ Model Training
+
+Train a Random Forest model
+
+Evaluate using Mean Absolute Error (MAE) & Root Mean Square Error (RMSE)
+
+4️⃣ Results & Visualization
+
+Compare Actual vs Predicted demand
+
+Plot demand trends
+
+🛠 Tools & Libraries
+Google Colab / Jupyter Notebook (for running the model)
+
+Python 3.x
+
+Libraries:
+
+Pandas & NumPy → Data handling
+
+Scikit-learn → Machine Learning
+
+Matplotlib → Visualization
+
+✅ How to Run
+Clone this repo or download the files.
+
+Open demand_prediction.ipynb in Google Colab.
+
+Run all cells → The model will generate predictions and show visualizations.
+
+Modify features (add real sales data, live weather APIs) to improve accuracy.
+
+📂 Project Structure
+bash
 Copy
 Edit
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_absolute_error
-from sklearn.preprocessing import OneHotEncoder
-import matplotlib.pyplot as plt
+📦 SDG8-Demand-Prediction
+ ┣ 📜 demand_prediction.ipynb   # Main ML code (Google Colab Notebook)
+ ┣ 📜 report.pdf                # 1-page project report
+ ┣ 📜 slides.pdf                # Pitch deck presentation
+ ┗ 📜 README.md                 # Project documentation
+📈 Expected Results
+Accurate daily demand predictions (low MAE → better forecasting)
 
-# Example: Create synthetic dataset
-np.random.seed(42)
-dates = pd.date_range(start='2023-01-01', periods=200)
-day_of_week = dates.day_name()
-weather_temp = np.random.normal(25, 5, size=len(dates))  # temp in °C
-event_flag = np.random.choice([0,1], size=len(dates), p=[0.8,0.2])  # 20% days have events
-demand = (50 + 10 * (day_of_week.isin(['Friday', 'Saturday'])) + 
-          5 * event_flag + 
-          np.random.normal(0, 5, len(dates)))
+Visualization showing Actual vs Predicted demand
 
-data = pd.DataFrame({
-    'date': dates,
-    'day_of_week': day_of_week,
-    'temperature': weather_temp,
-    'event': event_flag,
-    'demand': demand
-})
+Insights into how day-of-week, weather, and events affect demand
 
-# Preprocessing
-X = data[['day_of_week', 'temperature', 'event']]
-y = data['demand']
+These predictions can help businesses reduce waste & increase profits.
 
-# One-hot encode day_of_week
-X = pd.get_dummies(X, columns=['day_of_week'], drop_first=True)
+🤝 Ethical & Social Impact
+Ensure data includes diverse communities (urban & rural businesses).
 
-# Train/test split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+Avoid algorithmic bias that could harm underrepresented groups.
 
-# Model training
-model = RandomForestRegressor(random_state=42)
-model.fit(X_train, y_train)
+Use data ethically & securely, especially if dealing with real sales records.
 
-# Prediction and evaluation
-y_pred = model.predict(X_test)
-print("MAE:", mean_absolute_error(y_test, y_pred))
+Promote sustainability by reducing food waste.
 
-# Plot predicted vs actual
-plt.scatter(y_test, y_pred)
-plt.xlabel("Actual Demand")
-plt.ylabel("Predicted Demand")
-plt.title("Actual vs Predicted Demand")
-plt.show()
+🚀 Future Improvements
+Integrate real historical sales data
+
+Connect live weather API for real-time forecasting
+
+Compare multiple ML models (e.g., XGBoost, Neural Networks)
+
+Deploy as a simple web app (Flask/Streamlit) for easy use by small businesses
+
+🏆 Why This Project Matters
+AI can empower small businesses to make better decisions, reduce waste, and grow sustainably. By focusing on SDG 8, this project contributes to economic development while promoting responsible business practices.
+
+“AI isn’t just about code—it’s a tool to solve humanity’s greatest challenges.”
