@@ -123,4 +123,4 @@ Edit
 
 ## 📌 Author  
 *Kgololosego Moleba* 
-📧 [your.email@example.com](mailto:your.kgolomoleba@gmail.com)
+📧 [kgolomoleba@gmail.com](mailto:your.kgolomoleba@gmail.com)
