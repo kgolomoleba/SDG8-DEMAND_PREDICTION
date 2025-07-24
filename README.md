@@ -122,5 +122,5 @@ Edit
 ---
 
 ## 📌 Author  
-*Your Name*  
-📧 [your.email@example.com](mailto:your.email@example.com)
+*Kgololosego Moleba* 
+📧 [your.email@example.com](mailto:your.kgolomoleba@gmail.com)
